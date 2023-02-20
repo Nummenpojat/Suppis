@@ -16,7 +16,7 @@ services:
     dns:
       - 8.8.8.8
 
-  app:
+  frontend:
     build: app
     ports:
       - "3000:80"
