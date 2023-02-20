@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  core:
+    build: core
+    ports:
+      - "3001:3001"
+    restart: always
+    environment:
+      PORT: 3001
+      FIREBASE_SECRET_KEY_PATH: /app/config/firebase-admin-secrets/suppis-firebase-admin-secrets.json
+      WHATSAPP_SESSION_PATH: /app/config/whatsapp
+    volumes:
+      - ./core/config/whatsapp:/app/config/whatsapp
+      - ./core/config/firebase-admin-secrets:/app/config/firebase-admin-secrets
+    dns:
+      - 8.8.8.8
+
+  app:
+    build: app
+    ports:
+      - "3000:80"
+    environment:
+      BASE_URL: http://frontend:3002/
+    restart: always
+    dns:
+      - 8.8.8.8
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "3002:80"
+    restart: always
+    depends_on:
+      - "core"
+      - "app"
+    environment:
+      API_URL: 'http://core:3001'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    dns:
+      - 8.8.8.8
+
