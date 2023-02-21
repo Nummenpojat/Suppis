@@ -21,7 +21,7 @@ services:
     ports:
       - "3000:80"
     environment:
-      BASE_URL: http://frontend:3002/
+      BASE_URL: http://localhost
     restart: always
     dns:
       - 8.8.8.8
