@@ -1,0 +1,99 @@
+
+/*
+ * Copyright (c) 2022 Hyvinkään Nummenpojat ry.
+ * @author Ruben Mkrtumyan
+ */
+
+/*
+    Nummareiden brändivärit
+ */
+
+/*
+Dark mode off, because nummarit color palette doesn't extend enough to do it
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tausta: #000000;
+        --mannynvihrea: #44D537;
+        --mansikanpunainen: #FF7364;
+        --partionsininen: #253764;
+        --varvunvihrea: #008D37;
+        --iltaruskonpunainen: #DA2525;
+        --vaaleansininen: #28AAE1;
+        --foreground: #1a2b38;
+        --onforeground: #f2f2f2;
+        --leipateksti: #fff;
+        --onbackground: #fff;
+        --onbackground-surface: #000;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --tausta: #ece9e9;
+        --mannynvihrea: #008D37;
+        --mansikanpunainen: #DA2525;
+        --partionsininen: #253764;
+        --varvunvihrea: #44D537;
+        --iltaruskonpunainen: #FF7364;
+        --vaaleansininen: #28AAE1;
+        --leipateksti: #133713;
+        --foreground: #fff;
+        --onforeground: #4a4949;
+        --onbackground: #2f2d2d;
+        --onbackground-surface: #fff;
+    }
+}
+*/
+
+:root {
+    --tausta: #ece9e9;
+    --mannynvihrea: #008D37;
+    --mansikanpunainen: #DA2525;
+    --partionsininen: #253764;
+    --varvunvihrea: #44D537;
+    --iltaruskonpunainen: #FF7364;
+    --vaaleansininen: #28AAE1;
+    --leipateksti: #133713;
+    --foreground: #fff;
+    --onforeground: #4a4949;
+    --onbackground: #2f2d2d;
+    --onbackground-surface: #fff;
+}
+
+@font-face {
+    font-family: 'Passion One';
+    font-style: normal;
+    font-weight: normal;
+    src: url(/public/fonts/PassionOne-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: normal;
+    src: url(/public/fonts/Poppins-Regular.woff) format('woff');
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Passion One', serif;
+    text-transform: uppercase;
+    color: var(--mannynvihrea);
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 4px;
+}
+
+hr {
+    border-top: 1px dashed var(--mannynvihrea);
+    border-bottom: 1px dashed var(--mannynvihrea);
+}
+
+*:not(h1, h2, h3, h4, h5, h6) {
+    font-family: 'Poppins', serif;
+    color: var(--leipateksti);
+    font-weight: 400;
+}
+
+a:hover {
+    color: var(--mannynvihrea);
+}
