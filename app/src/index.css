@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .nummari-button {
+        @apply bg-mannynvihrea p-2 rounded-[5px] font-passionOne text-white text-xl w-[300px] my-5
+    }
+}

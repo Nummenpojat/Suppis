@@ -2,22 +2,22 @@ version: "3.9"
 
 services:
   core:
-    build: ./suppis-core
+    build: ./core
     ports:
       - "3001:3001"
     restart: always
     environment:
       PORT: 3001
-      FIREBASE_SECRET_KEY_PATH: /app/config/firebase-admin-secrets/suppis-firebase-admin-secrets.json
+      FIREBASE_SECRET_KEY_PATH: /app/config/suppis-firebase-admin-secrets.json
       WHATSAPP_SESSION_PATH: /app/config/whatsapp
     volumes:
-      - ./suppis-core/config/whatsapp:/app/config/whatsapp
-      - ./suppis-core/config/firebase-admin-secrets:/app/config/firebase-admin-secrets
+      - ./core/config/whatsapp:/app/config/whatsapp
+      - ./core/config/firebase-admin-secrets:/app/config/firebase-admin-secrets
     dns:
       - 8.8.8.8
 
-  frontend:
-    build: ./suppis-nettisivut
+  app:
+    build: ./app
     ports:
       - "3000:80"
     environment:

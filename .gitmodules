@@ -1,6 +1,0 @@
-[submodule "suppis-nettisivut"]
-	path = suppis-nettisivut
-	url = https://github.com/Nummenpojat/suppis-nettisivut.git
-[submodule "suppis-core"]
-	path = suppis-core
-	url = https://github.com/Nummenpojat/suppis-core.git
