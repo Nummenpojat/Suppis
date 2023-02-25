@@ -23,7 +23,7 @@ router.use((req, res, next) => {
 })
 
 router.post("/send/one", (req, res) => {
-  sendMessage(req.body.number, req.body.message)
+  sendMessage(req.body.number, req.body.message, req.header("X-Firebase-IdToken") || "")
     .then((result) => {
       res.status(200).send(result)
     })
@@ -33,7 +33,7 @@ router.post("/send/one", (req, res) => {
 })
 
 router.post("/send/list", (req, res) => {
-  sendMessageToList(req.body.message, req.body.numbers)
+  sendMessageToList(req.body.message, req.body.numbers, req.header("X-Firebase-IdToken") || "")
     .then((result) => {
       res.status(200).send(result)
     })

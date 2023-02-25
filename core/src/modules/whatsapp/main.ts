@@ -1,4 +1,5 @@
 import {Client, LocalAuth} from "whatsapp-web.js";
+import getCurrentUser from "../../auth/getCurrentUser";
 
 // Client configuration and exporting to other module parts
 export const client = new Client({
@@ -62,7 +63,7 @@ export const checkNumbers = async (numbers: string[]) => {
   }
 }
 
-export const logMessage = (message: string) => {
+export const logMessage = async (message: string) => {
   client.sendMessage(process.env.LOG_GROUP_ID || "", message)
     .catch(error => console.log(`Error occured when making log: ${error}`))
 }

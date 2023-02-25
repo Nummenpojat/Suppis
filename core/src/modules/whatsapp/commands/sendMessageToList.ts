@@ -1,6 +1,7 @@
 import {checkNumbers, client, logMessage} from "../main";
+import getCurrentUser from "../../../auth/getCurrentUser";
 
-export const sendMessageToList = async (message: string, numbers: string[]) => {
+export const sendMessageToList = async (message: string, numbers: string[], senderIdToken: string) => {
 
   // Checking that message is not empty
   if (message == "" || message == null) {
@@ -37,7 +38,8 @@ export const sendMessageToList = async (message: string, numbers: string[]) => {
       throw error
     }
   }
-  logMessage(`Message sent to ${numbers.length} people:\n\n${message}`)
+  const user = await getCurrentUser(senderIdToken)
+  logMessage(`${user?.email || "Unknown"} sent message to ${numbers.length} people:\n\n${message}`)
   console.log(`Message ${message} sent to list of people`);
   return `Message ${message} sent to list of people`
 }
