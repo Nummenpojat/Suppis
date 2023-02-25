@@ -13,7 +13,7 @@ import Main from "./pages/main";
 import axios from "axios";
 
 export const core = axios.create({
-  baseURL: process.env.API_BASE_URL
+  baseURL: "http://localhost:3001"
 });
 
 core.interceptors.request.use(async config => {

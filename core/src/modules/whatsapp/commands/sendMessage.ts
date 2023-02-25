@@ -1,10 +1,5 @@
-import {checkNumbers, client} from "../main";
+import {checkNumbers, client, logMessage} from "../main";
 
-/**
- *  Send message with Whatsapp to single number
- *  @param phoneNumber Number that message is sent
- *  @param message Text that is sent to phoneNumber provided
- **/
 export const sendMessage = async (phoneNumber: string, message: string) => {
 
   // Checking that phone number is not empty
@@ -16,7 +11,6 @@ export const sendMessage = async (phoneNumber: string, message: string) => {
   if (message == "" || message == null) {
     throw "You need to provide message to send"
   }
-
 
   // Removing + at the start if it exits so the phone number is in right format
   if (phoneNumber.startsWith('+')) {
@@ -32,6 +26,8 @@ export const sendMessage = async (phoneNumber: string, message: string) => {
 
     // Sending message to chosen chat
     const returnMessage = await client.sendMessage(chatId, message)
+
+    logMessage(`Message sent:\n\n${returnMessage.body}`)
 
     console.log(`Message ${returnMessage.body} sent`);
     return `Message ${returnMessage.body} sent`

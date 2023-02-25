@@ -1,10 +1,5 @@
-import {checkNumbers, client} from "../main";
+import {checkNumbers, client, logMessage} from "../main";
 
-/**
- * Send same message to list of people
- * @param message Text that is sent to list provided
- * @param persons Array that contains numbers of people to send the message
- * */
 export const sendMessageToList = async (message: string, numbers: string[]) => {
 
   // Checking that message is not empty
@@ -42,6 +37,7 @@ export const sendMessageToList = async (message: string, numbers: string[]) => {
       throw error
     }
   }
+  logMessage(`Message sent to ${numbers.length} people:\n\n${message}`)
   console.log(`Message ${message} sent to list of people`);
   return `Message ${message} sent to list of people`
 }

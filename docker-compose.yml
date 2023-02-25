@@ -8,11 +8,11 @@ services:
     restart: always
     environment:
       PORT: 3001
-      FIREBASE_SECRET_KEY_PATH: /app/config/suppis-firebase-admin-secrets.json
-      WHATSAPP_SESSION_PATH: /app/config/whatsapp
+      FIREBASE_SECRET_KEY_PATH: /app/firebase.json
+      WHATSAPP_SESSION_PATH: /app/whatsapp
     volumes:
-      - ./core/config/whatsapp:/app/config/whatsapp
-      - ./core/config/firebase-admin-secrets:/app/config/firebase-admin-secrets
+      - ./core/whatsapp:/app/config/whatsapp
+      - ./core/firebase.json:/app/config/firebase-admin-secrets
     dns:
       - 8.8.8.8
 
