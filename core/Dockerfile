@@ -14,7 +14,7 @@ RUN \
   apt-get install -y google-chrome-stable && \
   rm -rf /var/lib/apt/lists/*s
 
-COPY ../suppis-core ./
+COPY . .
 
 RUN npm run build
 
