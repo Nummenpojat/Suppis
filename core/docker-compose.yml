@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       PORT: 3001
-      FIREBASE_SECRET_KEY_PATH: /app/config/firebase-admin-secrets/suppis-firebase-admin-secrets.json
+      FIREBASE_SECRET_KEY_PATH: /app/config/firebase-admin-secrets/firebase.json
       WHATSAPP_SESSION_PATH: /app/config/whatsapp
     volumes:
       - ./config/whatsapp:/app/config/whatsapp

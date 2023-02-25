@@ -2,7 +2,7 @@
 Innovative way to market 📣 and communicate 💬
 
 ## How to install and use 💾
-1. Run `npm install` to install dependencies of [Suppis-core](https://github.com/Nummenpojat/suppis-core)
+1. Run `npm install` to install dependencies
 2. Configure [Firebase 🔥](https://firebase.google.com/) 
    1. Make Firebase project
    2. Go to Authentication and enable Google as sign-in provider

@@ -36,7 +36,7 @@ export default function MessageWrapper() {
         .catch(reason => handleMessageApiCallResponse(reason))
     }
 
-    alert(error.response.data)
+    alert(`Ongelma ilmeentyi: ${error.response.data}`)
   }
 
   const handleCsvToJson = (): Promise<any> => {
@@ -62,6 +62,16 @@ export default function MessageWrapper() {
 
   const handleSend = async (event: any) => {
     event.preventDefault()
+
+    if (message == "") {
+      alert("Sinun pitää antaa viesti")
+      return
+    }
+
+    if (!confirm(`Haluatko lähettää viestin:\n\n${message}\n\nHuomaathan että viestin lähettämisessä kestää hetki joten älä ihmettele jos näyttä siltä että mitään ei tapahdu`)) {
+      return
+    }
+
     if (!toList) {
       try {
         const result: AxiosResponse = await core.post("/api/whatsapp/send/one", {
@@ -69,7 +79,7 @@ export default function MessageWrapper() {
           message: message
         })
 
-        alert(result.data)
+        alert(`Viestin lähettäminen onnistui.`)
 
       } catch (error: any) {
         handleMessageApiCallResponse(error)
@@ -84,7 +94,7 @@ export default function MessageWrapper() {
           message: message
         })
 
-        alert(result.data)
+        alert("Viestien lähettäminen onnistui")
       } catch (error: any) {
         handleMessageApiCallResponse(error)
       }

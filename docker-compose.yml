@@ -8,11 +8,12 @@ services:
     restart: always
     environment:
       PORT: 3001
-      FIREBASE_SECRET_KEY_PATH: /app/config/suppis-firebase-admin-secrets.json
-      WHATSAPP_SESSION_PATH: /app/config/whatsapp
+      FIREBASE_SECRET_KEY_PATH: /app/firebase.json
+      WHATSAPP_SESSION_PATH: /app/whatsapp
+      LOG_GROUP_ID: 120363043346036120@g.us
     volumes:
-      - ./core/config/whatsapp:/app/config/whatsapp
-      - ./core/config/firebase-admin-secrets:/app/config/firebase-admin-secrets
+      - ./core/whatsapp:/app/config/whatsapp
+      - ./core/firebase.json:/app/firebase.json
     dns:
       - 8.8.8.8
 
@@ -21,7 +22,7 @@ services:
     ports:
       - "3000:80"
     environment:
-      BASE_URL: http://localhost
+      API_BASE_URL: http://localhost
     restart: always
     dns:
       - 8.8.8.8
@@ -33,7 +34,7 @@ services:
     restart: always
     depends_on:
       - "core"
-      - "frontend"
+      - "app"
     environment:
       API_URL: 'http://core:3001'
     volumes:
