@@ -24,20 +24,12 @@ router.use((req, res, next) => {
 
 router.post("/send/one", (req, res) => {
   sendMessage(req.body.number, req.body.message, req.header("X-Firebase-IdToken") || "")
-    .then((result) => {
-      res.status(200).send(result)
-    })
-    .catch((reason) => {
-      res.status(400).send(reason)
-    })
+    .then((result) => { res.status(200).send(result); console.log(result) })
+    .catch((reason) => { res.status(400).send(reason); console.log(reason) })
 })
 
 router.post("/send/list", (req, res) => {
   sendMessageToList(req.body.message, req.body.numbers, req.header("X-Firebase-IdToken") || "")
-    .then((result) => {
-      res.status(200).send(result)
-    })
-    .catch((reason) => {
-      res.status(400).send(reason)
-    })
+    .then((result) => { res.status(200).send(result); console.log(result) })
+    .catch((reason) => { res.status(400).send(reason); console.log(reason) })
 })

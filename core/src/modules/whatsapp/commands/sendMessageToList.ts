@@ -40,6 +40,5 @@ export const sendMessageToList = async (message: string, numbers: string[], send
   }
   const user = await getCurrentUser(senderIdToken)
   logMessage(`${user?.email || "Unknown"} sent message to ${numbers.length} people:\n\n${message}`)
-  console.log(`Message ${message} sent to list of people`);
   return `Message ${message} sent to list of people`
 }

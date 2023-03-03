@@ -30,7 +30,6 @@ export const sendMessage = async (phoneNumber: string, message: string, senderId
 
     const user = await getCurrentUser(senderIdToken)
     logMessage(`${user?.email || "Unknown"} sent message:\n\n${returnMessage.body}`)
-    console.log(`Message ${returnMessage.body} sent`);
     return `Message ${returnMessage.body} sent`
 
   } catch (error: any) {

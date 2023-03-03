@@ -40,14 +40,14 @@ http.all('/api', (req: any, res: any) => {
 
 http.put('/api/admin/set', (req, res) => {
   setUserToAdmin(req.body.email)
-    .then(() => res.status(201).send(`${req.body.email} is now admin`))
-    .catch((reason) => res.status(400).send(reason))
+    .then(() => { res.status(201).send(`${req.body.email} is now admin`); console.log(`${req.body.email} is now admin`) })
+    .catch((reason) => { res.status(400).send(reason); console.error(reason) })
 })
 
 http.delete('/api/admin/remove', (req, res) => {
   removeAdminFromUser(req.body.email)
-    .then(() => res.status(200).send(`Admin status removed from ${req.body.email}`))
-    .catch((reason) => res.status(400).send(reason))
+    .then(() => { res.status(200).send(`Admin status removed from ${req.body.email}`); console.log(`Admin status removed from ${req.body.email}`)})
+    .catch((reason) => { res.status(400).send(reason); console.log(reason) })
 })
 
 http.listen(PORT, () => {
