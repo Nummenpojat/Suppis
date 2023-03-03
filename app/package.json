@@ -1,6 +1,8 @@
 {
-  "name": "suppis-nettisivut",
-  "version": "1.0.0-rc.1",
+  "name": "app",
+  "description": "Frontend for Suppis",
+  "author": "Nummenpojat",
+  "license": "GPL-V3",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

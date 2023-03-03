@@ -4,7 +4,7 @@ import * as express from "express"
 import {json} from "express";
 import {startWhatsappSession} from "./modules/whatsapp/main";
 import {router as whatsappRouter} from "./router/whatsapp"
-import {checkAuth} from "./auth/core";
+import {checkAuth} from "./auth/checkAuth";
 import {setUserToAdmin} from "./auth/setUserToAdmin";
 import {appCheck} from "./auth/appCheck";
 import {removeAdminFromUser} from "./auth/removeAdminFromUser";

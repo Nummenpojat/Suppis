@@ -1,8 +1,9 @@
 {
-  "name": "Suppis-core",
-  "version": "0.8.1-Beta",
+  "name": "core",
   "description": "Backend for Suppis",
   "main": "dist/main.js",
+  "author": "Nummenpojat",
+  "license": "GPL-V3",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx ts-node src/main.ts",
@@ -10,8 +11,6 @@
     "build": "tsc",
     "start-build": "node ./dist/main.js"
   },
-  "author": "Nummenpojat",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
