@@ -21,7 +21,11 @@ export const sendMessageToList = async (message: string, numbers: string[], send
   for (const num of numbers) {
 
     //Making chat id from phone number to use at client.sendMessage to identify where to send the message
-    let chatId = num + "@c.us"
+    let chatId = num
+
+    if (!chatId.endsWith("@c.us")) {
+      chatId = chatId + "@c.us"
+    }
 
     // Removing + at the start if it exits so the phone number is in right format
     if (chatId.startsWith('+')) {

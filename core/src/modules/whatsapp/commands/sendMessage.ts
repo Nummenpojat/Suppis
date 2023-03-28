@@ -19,14 +19,16 @@ export const sendMessage = async (phoneNumber: string, message: string, senderId
   }
 
   //Making chat id from phone number to use at client.sendMessage to identify where to send the message
-  const chatId = phoneNumber + "@c.us"
+  if (!phoneNumber.endsWith("@c.us")) {
+    phoneNumber = phoneNumber + "@c.us"
+  }
 
   try {
 
     await checkNumbers([phoneNumber])
 
     // Sending message to chosen chat
-    const returnMessage = await client.sendMessage(chatId, message)
+    const returnMessage = await client.sendMessage(phoneNumber, message)
 
     const user = await getCurrentUser(senderIdToken)
     logMessage(`${user?.email || "Unknown"} sent message:\n\n${returnMessage.body}`)
